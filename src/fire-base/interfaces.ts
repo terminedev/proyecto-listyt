@@ -24,3 +24,9 @@ export interface Playlist {
     videos: Video['id'][];
 }
 
+export interface FormatResponse {
+    response: boolean | null;
+    data: any,
+    message: string
+}
+
