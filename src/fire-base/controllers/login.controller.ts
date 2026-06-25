@@ -1,4 +1,4 @@
-// import { auth } from '../../fire-base/main.ts';
+// import { auth } from '../main';
 // import {
 //     signInWithEmailAndPassword,
 //     signOut,

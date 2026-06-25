@@ -9,6 +9,7 @@ export interface Video {
     id: string;
     autor: string;
     uid: User['uid'];
+    cleanTitle: string;
     // Editables:
     title: string;
     url: string;
@@ -18,6 +19,7 @@ export interface Video {
 export interface Playlist {
     id: string;
     uid: User['uid'];
+    cleanName: string;
     // Editables:
     name: string;
     color: string;
@@ -30,3 +32,7 @@ export interface FormatResponse {
     message: string
 }
 
+export interface VideoResponse {
+    videos: Video[],
+    lastDoc: Video | null
+}
