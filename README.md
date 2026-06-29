@@ -45,8 +45,6 @@
       * Listar playlist
         # Reproducir vídeo (iframe)
 
-* Solo permite una muy escasa limitación de las opciones anteriores pero con local storage.
-
 
 ### Funciones que se repiten: 
 

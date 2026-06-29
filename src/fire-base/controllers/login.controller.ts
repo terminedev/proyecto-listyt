@@ -1,9 +1,9 @@
-// import { auth } from '../main';
-// import {
-//     signInWithEmailAndPassword,
-//     signOut,
-//     onAuthStateChanged
-// } from 'firebase/auth';
+import { auth } from '../main';
+import {
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
+} from 'firebase/auth';
 
 import type { FormatResponse, User } from "../interfaces";
 import { formatResponse } from "../main";

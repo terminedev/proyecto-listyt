@@ -1,22 +1,20 @@
-// import { db } from '../main';
-// import {
-//     collection,
-//     doc,
-//     addDoc,
-//     updateDoc,
-//     deleteDoc,
-//     getDoc, 
-//     getDocs,
-//     query,
-//     limit,
-//     startAfter,
-//     orderBy,
-//     where, 
-//     serverTimestamp,
-//     getCountFromServer,
-//     arrayUnion,
-//     arrayRemove,
-// } from 'firebase/firestore';
+import { db } from '../main';
+import {
+    collection,
+    doc,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    getDoc,
+    getDocs,
+    query,
+    limit,
+    startAfter,
+    orderBy,
+    where,
+    arrayUnion,
+    arrayRemove,
+} from 'firebase/firestore';
 
 import type { FormatResponse, Playlist, PlaylistResponse, UpdatedDataPlaylist } from "../interfaces";
 import { formatResponse, generateCleanName } from "../main";
@@ -70,7 +68,7 @@ export const getPlaylistsByCleanName = async (
             } as Playlist);
         });
 
-        const newLastDoc = querySnapshot.docs[querySnapshot.docs.length - 1] || null;
+        const newLastDoc = querySnapshot.docs[querySnapshot.docs.length - 1] as unknown || null;
 
         return formatResponse(
             true,
