@@ -65,5 +65,4 @@ export interface UpdatedDataPlaylist {
     name: string;
     cleanName: string;
     color: string;
-    videos: Video['id'][];
 }

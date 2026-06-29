@@ -219,3 +219,93 @@ export const deletePlaylist = async (
         return formatResponse(false, null, `Error al eliminar la playlist.`);
     }
 };
+
+// -----------------
+// OPERACIONES DE CAMPO
+// -----------------
+
+// AGREGAR un vídeo a la playlist:
+export const addVideoToPlaylist = async (
+    playlistID: string,
+    videoID: string
+): Promise<FormatResponse> => {
+
+    if (!playlistID || playlistID.length <= 0) return {
+        data: null,
+        message: 'Ingrese el ID de la playlist.',
+        response: false
+    };
+
+    if (!videoID || videoID.length <= 0) return {
+        data: null,
+        message: 'Ingrese el ID del vídeo.',
+        response: false
+    };
+
+    try {
+        const docRef = doc(db, COLLECTION_NAME, playlistID);
+
+        await updateDoc(docRef, {
+            videos: arrayUnion(videoID)
+        });
+
+        return formatResponse(
+            true,
+            { playlistID, videoID },
+            "Vídeo agregado a la playlist exitosamente."
+        );
+
+    } catch (error) {
+
+        if (error instanceof Error) {
+            console.error(error.message);
+        } else {
+            console.error('Error desconocido:', error);
+        }
+
+        return formatResponse(false, null, `Error al agregar vídeo la playlist.`);
+    }
+};
+
+// QUITAR un vídeo a la playlist:
+export const removeVideoToPlaylist = async (
+    playlistID: string,
+    videoID: string
+): Promise<FormatResponse> => {
+
+    if (!playlistID || playlistID.length <= 0) return {
+        data: null,
+        message: 'Ingrese el ID de la playlist.',
+        response: false
+    };
+
+    if (!videoID || videoID.length <= 0) return {
+        data: null,
+        message: 'Ingrese el ID del vídeo.',
+        response: false
+    };
+
+    try {
+        const docRef = doc(db, COLLECTION_NAME, playlistID);
+
+        await updateDoc(docRef, {
+            videos: arrayRemove(videoID)
+        });
+
+        return formatResponse(
+            true,
+            { playlistID, videoID },
+            "Vídeo quitado de la playlist exitosamente."
+        );
+
+    } catch (error) {
+
+        if (error instanceof Error) {
+            console.error(error.message);
+        } else {
+            console.error('Error desconocido:', error);
+        }
+
+        return formatResponse(false, null, `Error al quitar vídeo la playlist.`);
+    }
+};
