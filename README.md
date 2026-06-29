@@ -37,17 +37,19 @@
 
 * Acceder a la web mediante el lugueo de firebase:  
 
-    * Buscar vídeo (nombre)
-      # Reproducir vídeo (iframe)
+    * Buscar vídeo (nombre) ✓
+      # Reproducir vídeo (iframe) 
 
-    * Buscar playlist (nombre)
+    * Buscar playlist (nombre) 
       * Editar playlist.
       * Listar playlist
         # Reproducir vídeo (iframe)
 
 * Solo permite una muy escasa limitación de las opciones anteriores pero con local storage.
 
+
 ### Funciones que se repiten: 
-* Reproducir vídeo (iframe)
+
+* Reproducir vídeo (iframe) 
   * Editar vídeo.
 
