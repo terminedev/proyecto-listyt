@@ -23,9 +23,9 @@ export interface Video {
 export interface Playlist {
     id: string;
     uid: User['uid'];
-    cleanName: string;
     // Editables:
     name: string;
+    cleanName: string;
     color: string;
     videos: Video['id'][];
 }
@@ -45,6 +45,11 @@ export interface VideoResponse {
     lastDoc: Video | null
 }
 
+export interface PlaylistResponse {
+    playlists: Playlist[],
+    lastDoc: Playlist | null
+}
+
 // ----------------------------------
 // ACTUALIZACIÓN
 // ----------------------------------
@@ -54,4 +59,11 @@ export interface UpdatedDataVideo {
     cleanTitle: Video['cleanTitle'];
     url: Video['url'];
     miniature: Video['miniature'];
+}
+
+export interface UpdatedDataPlaylist {
+    name: string;
+    cleanName: string;
+    color: string;
+    videos: Video['id'][];
 }
